@@ -171,6 +171,9 @@ p{margin: var(--defaultMargin) 0;}
 .contact-table a{
     color: var(--textcolor);
 }
+.contact-table a:hover{
+    color: hsl(221, 44%, 70%);
+}
 
 
 @media (width < 576px){
