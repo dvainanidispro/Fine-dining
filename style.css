@@ -1,0 +1,183 @@
+:root{
+    --xs: 384px;
+    --sm: 576px;
+    --md: 768px;
+    --lg: 992px;
+    --pageMaxWidth: 1200px;
+
+    --defaultFontSize: 1.2rem;
+    --mainFont: Verdana, Geneva, sans-serif; 
+    /* --mainFont:  system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; */
+    --inputFont: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+    --defaultMargin: 1rem;
+    --defaultPadding: 0.5em;
+    --defaultBorderRadius: 0.3em;
+    --headerPadding: 0.8vw;
+
+    --textcolor: lavender;
+    --backgroundColor: hsl(275, 100%, 5%)  ;
+    --backgroundColorSideways: black; 
+    --backColorLight: lavender; 
+    --backColorBlue:hsl(208, 100%, 40%);
+}
+
+
+html {
+    font-family: var(--mainFont);
+    background-color: var(--backgroundColorSideways);
+    font-size: var(--defaultFontSize);
+    scroll-behavior: smooth;
+
+
+}
+
+body {
+    overflow-x: hidden;
+    margin: auto; /*centers body*/
+    max-width: min(var(--pageMaxWidth),100vw);
+    box-sizing: border-box;
+    color: var(--textcolor);
+    line-height: 1.5;
+    background: var(--backgroundColor); 
+}
+
+/*<main> or all body elements if <main> does not exist.e*/
+body>*:not(header){margin: 0 2vw}  
+body * {box-sizing: border-box;}
+
+.scrollable {
+	overflow-y: scroll; /* Add the ability to scroll */
+	scrollbar-width: none;  /* Hide scrollbar - Firefox */
+}
+.scrollable::-webkit-scrollbar { /* Hide scrollbar - Chrome, Safari and Opera */
+    display: none;
+    scrollbar-width: none;
+}
+
+
+/* Text-level semantics 
+   ========================================================================== */
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: bold;
+    margin: calc(2*var(--defaultMargin)) 0 var(--defaultMargin) 0;
+    padding: 0;
+}
+p{margin: var(--defaultMargin) 0;}
+.bold{font-weight:bold}
+.italics{font-style:italic}
+.underlined{text-decoration:underline}
+.s12{font-size:1.2rem}
+.s15{font-size:1.5rem}
+.s20{font-size:2rem}
+.s25{font-size:2.5rem}
+.s30{font-size:3rem}
+.s40{font-size:4rem}
+
+
+/**********************************             SLIM CONTAINERS              ********************************/
+
+.xxs{
+	max-width: var(--xxs);
+}
+.xs{
+	max-width: var(--xs);
+}
+.sm{
+	max-width: var(--sm);
+}
+.md{
+	max-width: var(--md);
+}
+.lg{
+	max-width: var(--lg);
+}
+
+
+/**********************************             DIM STRUCTURE              ********************************/
+.center-contents{
+	display: grid;              /*(το grid έχει το ίδιο αποτέλεσμα με το flex:space-around) */
+	place-items: center;
+}
+
+[class*="inline-contents"]{			
+	display: flex;
+	flex-flow: row wrap;		
+	justify-content: center;	
+    align-items: center;		
+    gap: 1rem;	
+}
+[class*="inline-contents-top"]{				
+    align-items: start;	
+}
+@media (max-width: 768px) {.inline-contents-md, .inline-contents-top-md {flex-direction: column !important; align-items: center;}}		
+@media (max-width: 992px) {.inline-contents-lg, .inline-contents-top-lg {flex-direction: column !important; align-items: center;}}	
+
+
+/**********************************             ICONS              ********************************/
+
+/* Style all font awesome icons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+
+
+/**********************************             PAGE SPECIFIC              ********************************/
+.lead-phrase{
+    --fontsize: min(2rem,8vw);
+    font-size: var(--fontsize);
+    line-height: min(2.1rem,8.4vw);
+    /* font-size: 1.8rem; */
+    margin: 1rem;
+    text-align: center;
+}
+.img-logo{
+    max-width: min(250px,95%);
+}
+.img-card{
+    max-width: min(500px,95%);
+}
+.contact-table{
+    table-layout: fixed; 
+    width: min(500px,95%);
+}
+.contact-table tr{
+    line-height: 1.5rem;
+}
+.contact-table td{
+    padding: 0.2rem;
+}
+.contact-table a{
+    color: var(--textcolor);
+}
+
+
+@media (width < 576px){
+    .sm-hide{
+        display: none;
+    }
+    .sm-center{
+        text-align: center;
+    }
+}
