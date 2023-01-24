@@ -160,7 +160,7 @@ p{margin: var(--defaultMargin) 0;}
 }
 .contact-table{
     table-layout: fixed; 
-    width: min(500px,95%);
+    width: min(450px,95%);
 }
 .contact-table tr{
     line-height: 1.5rem;
