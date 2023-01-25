@@ -22,14 +22,19 @@
     --backColorBlue:hsl(208, 100%, 40%);
 }
 
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 
 html {
     font-family: var(--mainFont);
     background-color: var(--backgroundColorSideways);
     font-size: var(--defaultFontSize);
     scroll-behavior: smooth;
-
-
 }
 
 body {
@@ -42,9 +47,8 @@ body {
     background: var(--backgroundColor); 
 }
 
-/*<main> or all body elements if <main> does not exist.e*/
+/*<main> or all body elements if <main> does not exist.*/
 body>*:not(header){margin: 0 2vw}  
-body * {box-sizing: border-box;}
 
 .scrollable {
 	overflow-y: scroll; /* Add the ability to scroll */
@@ -64,7 +68,10 @@ h1,h2,h3,h4,h5,h6 {
     margin: calc(2*var(--defaultMargin)) 0 var(--defaultMargin) 0;
     padding: 0;
 }
+h1{font-size: 2.2rem;}
 p{margin: var(--defaultMargin) 0;}
+a{color: var(--textcolor)}
+a:hover{color: hsl(221, 44%, 70%)}
 .bold{font-weight:bold}
 .italics{font-style:italic}
 .underlined{text-decoration:underline}
@@ -78,24 +85,16 @@ p{margin: var(--defaultMargin) 0;}
 
 /**********************************             SLIM CONTAINERS              ********************************/
 
-.xxs{
-	max-width: var(--xxs);
-}
-.xs{
-	max-width: var(--xs);
-}
-.sm{
-	max-width: var(--sm);
-}
-.md{
-	max-width: var(--md);
-}
-.lg{
-	max-width: var(--lg);
-}
+.xxs{max-width: var(--xxs)}
+.xs{max-width: var(--xs)}
+.sm{max-width: var(--sm)}
+.md{max-width: var(--md)}
+.lg{max-width: var(--lg)}
+
 
 
 /**********************************             DIM STRUCTURE              ********************************/
+
 .center-contents{
 	display: grid;              /*(το grid έχει το ίδιο αποτέλεσμα με το flex:space-around) */
 	place-items: center;
@@ -114,41 +113,28 @@ p{margin: var(--defaultMargin) 0;}
 @media (max-width: 768px) {.inline-contents-md, .inline-contents-top-md {flex-direction: column !important; align-items: center;}}		
 @media (max-width: 992px) {.inline-contents-lg, .inline-contents-top-lg {flex-direction: column !important; align-items: center;}}	
 
-
-/**********************************             ICONS              ********************************/
-
-/* Style all font awesome icons */
-.fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 60px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
-  }
-  
-  /* Add a hover effect if you want */
-  .fa:hover {
-    opacity: 0.7;
-  }
-
-  .fa-facebook {
-    background: #3B5998;
-    color: white;
-  }
-
-  .fa-instagram {
-    background: #125688;
-    color: white;
-  }
+@media (width < 576px){
+    .sm-hide{
+        display: none;
+    }
+    .sm-center{
+        text-align: center;
+    }
+}
+@media (width < 768px){
+    .md-hide{
+        display: none;
+    }
+    .md-center{
+        text-align: center;
+    }
+}
 
 
 /**********************************             PAGE SPECIFIC              ********************************/
 .lead-phrase{
-    --fontsize: min(2rem,8vw);
-    font-size: var(--fontsize);
-    line-height: min(2.1rem,8.4vw);
-    /* font-size: 1.8rem; */
+    font-size: min(2rem,8vw);
+    line-height: min(2.8rem,9vw);
     margin: 1rem;
     text-align: center;
 }
@@ -157,6 +143,7 @@ p{margin: var(--defaultMargin) 0;}
 }
 .img-card{
     max-width: min(500px,95%);
+    max-height: 480px;
 }
 .contact-table{
     table-layout: fixed; 
@@ -168,19 +155,4 @@ p{margin: var(--defaultMargin) 0;}
 .contact-table td{
     padding: 0.2rem;
 }
-.contact-table a{
-    color: var(--textcolor);
-}
-.contact-table a:hover{
-    color: hsl(221, 44%, 70%);
-}
 
-
-@media (width < 576px){
-    .sm-hide{
-        display: none;
-    }
-    .sm-center{
-        text-align: center;
-    }
-}
